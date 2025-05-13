@@ -16,13 +16,9 @@ const googleLogin = (req, res) => {
   });
   const frontendUrl =
     process.env.FRONTEND_URL || "https://role-based-frontend-plum.vercel.app";
-  res.redirect(
+  return res.redirect(
     `${frontendUrl}?token=${token}&user=${encodeURIComponent(user)}`
   );
-  res.json({
-    token,
-    user: { id: req.user._id, email: req.user.email, role: req.user.role },
-  });
 };
 
 const setRole = async (req, res) => {

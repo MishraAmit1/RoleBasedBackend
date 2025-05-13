@@ -39,7 +39,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: ["https://role-based-frontend-plum.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
