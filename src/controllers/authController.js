@@ -14,10 +14,14 @@ const googleLogin = (req, res) => {
     email: req.user.email,
     role: req.user.role,
   });
-  const frontendUrl =
-    process.env.FRONTEND_URL || "https://role-based-frontend-plum.vercel.app";
+  const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+  console.log(
+    `Redirecting to: ${frontendUrl}/?token=${token}&user=${encodeURIComponent(
+      user
+    )}`
+  );
   return res.redirect(
-    `${frontendUrl}?token=${token}&user=${encodeURIComponent(user)}`
+    `${frontendUrl}/?token=${token}&user=${encodeURIComponent(user)}`
   );
 };
 
