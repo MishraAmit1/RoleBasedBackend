@@ -21,9 +21,9 @@ const configurePassport = () => {
               email: profile.emails[0].value,
               name: profile.displayName,
             });
-            console.log("New user created:", user.email);
+            console.log("New user created:", user.email, "Role:", user.role);
           } else {
-            console.log("Existing user found:", user.email);
+            console.log("Existing user found:", user.email, "Role:", user.role);
           }
 
           return done(null, user);
